@@ -1,0 +1,207 @@
+.view {
+    color: #ebedee;
+    background: rgb(70, 71, 74, 0.5);
+    height: 564px;
+    margin-top: 8px;
+    padding: 0 0 16px 0;
+    /* border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px; */
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow-y: scroll;
+}
+.view::-webkit-scrollbar {
+    width: 3px;
+}
+.view::-webkit-scrollbar-track {
+    background: #282c34;
+}
+.view::-webkit-scrollbar-thumb {
+    background: #76acdd;
+    border-radius: 15px;
+}
+.view .main {
+    background: #282c34;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #282c34;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.view .main img {
+    width: 16px;
+    margin: 0 16px 0 20px;
+}
+.view .main .dropdown {
+    width: 10px;
+    margin: 0 0 0 -8px;
+}
+.view .main .refresh {
+    margin: 0 0 0 32px;
+}
+.view .main-right {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    right: 16px;
+}
+.view .main-right p {
+    font-size: 14px;
+    margin-right: 12px;
+}
+.view .main-right img {
+    width: 8px;
+    margin-right: 12px;
+}
+.view .main-right .next {
+    margin: 0;
+}
+
+.subject-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.subject-head p {
+    font-size: 24px;
+    margin-left: 20px;
+}
+.subject-head img {
+    width: 16px;
+    margin: 0 20px;
+}
+
+.view .primary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 12px 0;
+    /* text-decoration: underline #76acdd;
+    text-underline-offset: 22px; */
+}
+.view .primary img {
+    width: 16px;
+    margin: 0 16px 0 20px;
+}
+
+.primary .first {
+    display: flex;
+    align-items: center;
+}
+.primary .first .sender-icon {
+    background: #282c34;
+    width: 36px;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.primary .first .details {
+    display: flex;
+    flex-direction: column;
+}
+.primary .first .details .sender-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.primary .first .details .sender-details .sender-name {
+    color: #ebedee;
+    font-size: 14px;
+    margin-right: 8px;
+}
+.primary .first .details .sender-details .sender-email {
+    color: #c4c4c4;
+    font-size: 12px;
+}
+
+.primary .first .details .to-receiver {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.primary .first .details .to-receiver p {
+    font-size: 12px;
+    color: #c4c4c4;
+    margin: 0 6px 0 0;
+}
+.primary .first .details .to-receiver img {
+    width: 10px;
+    margin: 0;
+}
+
+.primary .second {
+    display: flex;
+    align-items: center;
+}
+.primary .second p {
+    font-size: 14px;
+    color: #c4c4c4;
+}
+.primary .second .reply {
+    margin: 0 20px 0 0;
+}
+.primary .second .indicator-green {
+    background: #029c3c;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.primary .second .indicator-amber {
+    background: #ffbf00;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.primary .second .indicator-red {
+    background: #eb0303;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+
+.body {
+    background: #282c34;
+    max-height: auto;
+    margin: 8px 20px 20px 72px;
+    padding: 12px;
+    border-left: 1px solid #76acdd;
+}
+
+.reply-forward {
+    margin: 8px 20px 20px 72px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.reply-forward button {
+    color: #ebedee;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 16px 0 0;
+    padding: 16px 24px;
+    border: 1px solid #1b1d20;
+    outline: none;
+    border-radius: 28px;
+}
+.reply-forward button:hover {
+    background: #282c34;
+    border: none;
+}
+.reply-forward button img {
+    width: 16px;
+    margin: 0 12px 0 0;
+}

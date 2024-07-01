@@ -1,0 +1,137 @@
+/* .test {
+    background: #000;
+    
+    margin-top: 8px;
+    padding: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    
+} */
+.mails {
+    color: #ebedee;
+    background: rgb(70, 71, 74, 0.5);
+    height: 564px;
+    margin-top: 8px;
+    padding: 0 0 16px 0;
+    /* border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px; */
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow-y: scroll;
+}
+.mails::-webkit-scrollbar {
+    width: 3px;
+}
+.mails::-webkit-scrollbar-track {
+    background: #282c34;
+}
+.mails::-webkit-scrollbar-thumb {
+    background: #76acdd;
+    border-radius: 15px;
+}
+.mails .main {
+    background: #282c34;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #282c34;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.mails .main img {
+    width: 16px;
+    margin: 0 16px 0 20px;
+}
+.mails .main .dropdown {
+    width: 10px;
+    margin: 0 0 0 -8px;
+}
+.mails .main .refresh {
+    margin: 0 0 0 32px;
+}
+.mails .main-right {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+}
+.mails .main-right p {
+    font-size: 14px;
+    margin-right: 12px;
+}
+.mails .main-right .next {
+    margin: 0;
+}
+
+
+.mails .primary {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    /* text-decoration: underline #76acdd;
+    text-underline-offset: 22px; */
+}
+.mails .primary img {
+    width: 16px;
+    margin: 0 16px 0 20px;
+}
+.mails .primary p {
+    color: #76acdd;
+}
+.mails hr {
+    background: #ebedee;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    margin-top: 16px;
+}
+.mails .project {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.mails .mail {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid #76acdd;
+}
+.mails .mail:hover {
+    background: #282c34;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.mail img {
+    width: 16px;
+    margin: 0 16px 0 20px;
+}
+.mail .star {
+    margin-left: 2px;
+}
+.mail .sender {
+    width: 18%;
+    margin-left: 24px;
+}
+.mail .subject {
+    width: 60%;
+    margin-left: 40px;
+}
+.mail .date_time {
+    /* margin-left: 20px; */
+    position: absolute;
+    right: 20px;
+}
+/* Utility Classes */
+.cursor-grab {
+    cursor: grab;
+}

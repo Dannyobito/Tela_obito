@@ -1,0 +1,78 @@
+.signup {
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+    gap: 8px;
+}
+.header h2 {
+    font-size: 40px;
+    color: #fdfbfb;
+}
+.header hr {
+    width: 60px;
+    height: 4px;
+    background: #fdfbfb;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 24px;
+}
+.inputs .input {
+    display: flex;
+    align-items: center;
+    width: 480px;
+    height: 68px;
+    background: #fdfbfb;
+    margin: auto;
+    border-radius: 8px;
+}
+.inputs .input #email-error {
+    display: flex;
+    flex-direction: column;
+}
+.inputs img {
+    width: 24px;
+    margin: 0px 20px;
+}
+
+.input input {
+    font-size: 20px;
+    color: #282c34;
+    background: transparent;
+    height: 50px;
+    width: 400px;
+    border: none;
+    outline: none;
+}
+
+.submit {
+    font-size: 20px;
+    font-weight: 700;
+    color: #282c34;
+    background: #fdfbfb;
+    width: 200px;
+    height: 60px;
+    margin: auto;
+    border: none;
+    border-bottom: 4px solid #0b0e12;
+    outline: none;
+    cursor: pointer;
+}
