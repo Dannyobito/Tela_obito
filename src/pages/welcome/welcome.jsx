@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import Login from '../login/login';
 // import Signup from "../signup/signup";
 import { Link, Route, Routes } from "react-router-dom";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
 import "./welcome.css";
@@ -14,6 +14,8 @@ const Welcome = () => {
   const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
   const handleLoginSuccess = async (response) => {
     console.log(response);
+
+    
     // try {
     //   const tokenInfo = response.credential;
 
@@ -34,10 +36,23 @@ const Welcome = () => {
     // }
   };
 
+  const googleLogin = useGoogleLogin({
+    flow: 'auth-code',
+    onSuccess: async codeResponse => {
+      console.log('login-response', codeResponse);
+      const tokens = await axios.post('http://localhost:3001/auth/google', {
+        code: codeResponse.code,
+      })
+
+      console.log("tokens", tokens);
+    },
+    onError: errorResponse => console.log("error", errorResponse),
+  });
+
   return (
     <div className="welcome">
       <img src={logo} />
-      <h1 className="tela">Welcome To Tela</h1>
+      <h1 className="tela">Welcome To Tela</h1> 
       <div className="buttons">
         <Link to="/login" className="button">
           <img src={login_icon} />
@@ -49,12 +64,7 @@ const Welcome = () => {
         </Link>
         <GoogleOAuthProvider clientId={clientId}>
           <div>
-            <GoogleLogin
-              onSuccess={handleLoginSuccess}
-              onError={() => {
-                console.log("Login Failed");
-              }}
-            />
+            <button onClick={() => googleLogin()}>Sign in with Google 🚀</button>
           </div>
         </GoogleOAuthProvider>
       </div>
