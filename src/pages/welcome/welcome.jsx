@@ -15,7 +15,6 @@ const Welcome = () => {
   const handleLoginSuccess = async (response) => {
     console.log(response);
 
-    
     // try {
     //   const tokenInfo = response.credential;
 
@@ -37,22 +36,42 @@ const Welcome = () => {
   };
 
   const googleLogin = useGoogleLogin({
-    flow: 'auth-code',
-    onSuccess: async codeResponse => {
-      console.log('login-response', codeResponse);
-      const tokens = await axios.post('http://localhost:3001/auth/google', {
-        code: codeResponse.code,
-      })
+    flow: "auth-code",
+    scope: "https://www.googleapis.com/auth/gmail.readonly",
+    onSuccess: async (codeResponse) => {
+      console.log("login-response", codeResponse);
+      const { code } = codeResponse;
+      // Exchange authorization code for tokens
+      const tokenResponse = await axios.post(
+        "http://localhost:5000/exchange-token",
+        {
+          code,
+        }
+      );
+      console.log(tokenResponse);
+      const { access_token, refresh_token } = tokenResponse.data;
 
-      console.log("tokens", tokens);
+      // Send the tokens to your backend
+      const res = await axios.post("http://localhost:5000/oauth-callback", {
+        access_token,
+        refresh_token,
+      });
+      console.log(res);
+
+      if (res.data.success) {
+        console.log("Successfully authenticated with Gmail API");
+        console.log(res);
+      } else {
+        console.log("Authentication failed");
+      }
     },
-    onError: errorResponse => console.log("error", errorResponse),
+    onError: (errorResponse) => console.log("error", errorResponse),
   });
 
   return (
     <div className="welcome">
       <img src={logo} />
-      <h1 className="tela">Welcome To Tela</h1> 
+      <h1 className="tela">Welcome To Tela</h1>
       <div className="buttons">
         <Link to="/login" className="button">
           <img src={login_icon} />
@@ -64,7 +83,9 @@ const Welcome = () => {
         </Link>
         <GoogleOAuthProvider clientId={clientId}>
           <div>
-            <button onClick={() => googleLogin()}>Sign in with Google 🚀</button>
+            <button onClick={() => googleLogin()}>
+              Sign in with Google 🚀
+            </button>
           </div>
         </GoogleOAuthProvider>
       </div>
